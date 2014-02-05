@@ -1,0 +1,32 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Registro de copias: <small><label id="lblNombreDocumento">Historico</label></small></h1>
+    </div>              
+    <form action="{{ path('basto_front_end_consultas_copias') }}" method="post" novalidate>
+        <table  class="table table-striped table-bordered table-condensed">
+            <tr>
+                <th>ID</th>                
+                <th>Inicio</th>
+                <th>Fin</th>
+                <th>Nombre</th>
+                <th></th>
+            </tr>
+
+            {% for arRegistroCopia in arRegistrosCopias %}
+            <tr>
+                <td><input type="hidden" name="LblCodigoCopia[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}">{{ arRegistroCopia.codigoRegistroCopiaPk }} </td>               
+                <td>{{ arRegistroCopia.fechaInicio |date("Y/m/d H:i:s")  }}</td>
+                <td>{{ arRegistroCopia.fechaFin |date("Y/m/d H:i:s")  }}</td>
+                <td>{{ arRegistroCopia.nombreArchivo }}</td>                
+                <td style="text-align: center"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></td>
+           
+            </tr>
+            {% endfor %}            
+        </table>                                   
+    </form>            
+</div>                  
+
+{% endblock %}

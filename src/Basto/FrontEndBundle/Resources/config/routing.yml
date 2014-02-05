@@ -5,3 +5,7 @@ basto_front_end_homepage:
 basto_front_end_consultas_copias:
     pattern:  /consultas/copias
     defaults: { _controller: BastoFrontEndBundle:Copias:lista }
+    
+basto_front_end_consultas_registro_copias:
+    pattern:  /consultas/registro/copias
+    defaults: { _controller: BastoFrontEndBundle:RegistrosCopias:lista }    
