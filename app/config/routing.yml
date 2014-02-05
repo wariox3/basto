@@ -1,0 +1,4 @@
+basto_front_end:
+    resource: "@BastoFrontEndBundle/Resources/config/routing.yml"
+    prefix:   /
+

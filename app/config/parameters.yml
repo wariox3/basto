@@ -1,8 +1,8 @@
 # This file is auto-generated during the composer install
 parameters:
     database_driver: pdo_mysql
-    database_host: localhost
-    database_port: null
+    database_host: 10.1.1.160
+    database_port: 3306
     database_name: bdbasto
     database_user: kasten
     database_password: aba70143086.
