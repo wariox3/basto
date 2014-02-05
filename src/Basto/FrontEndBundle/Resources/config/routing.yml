@@ -1,0 +1,7 @@
+basto_front_end_homepage:
+    pattern:  /
+    defaults: { _controller: BastoFrontEndBundle:Default:index }
+
+basto_front_end_consultas_copias:
+    pattern:  /consultas/copias
+    defaults: { _controller: BastoFrontEndBundle:Copias:lista }

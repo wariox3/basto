@@ -1,0 +1,33 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Lista de copias: <small><label id="lblNombreDocumento">Copias de seguridad</label></small></h1>
+    </div>              
+    <form action="{{ path('basto_front_end_consultas_copias') }}" method="post" novalidate>
+        <table  class="table table-striped table-bordered table-condensed">
+            <tr>
+                <th>ID</th>                
+                <th>Servidor</th>
+                <th>Usuario</th>            
+                <th>Clave</th>            
+                <th>Base Datos</th>
+                <th></th>
+            </tr>
+
+            {% for arCopia in arCopias %}
+            <tr>
+                <td><input type="hidden" name="LblCodigoCopia[]" value="{{ arCopia.codigoCopiaPk }}">{{ arCopia.codigoCopiaPk }} </td>               
+                <td>{{ arCopia.servidor }}</td>
+                <td>{{ arCopia.usuarioServidor }}</td>
+                <td>{{ arCopia.claveServidor }}</td>
+                <td>{{ arCopia.nombreBaseDatos }}</td>                
+                <td><input type="checkbox" name="ChkSeleccionar[]" value="{{ arCopia.codigoCopiaPk }}" /></td>            
+            </tr>
+            {% endfor %}            
+        </table>                                   
+    </form>            
+</div>                  
+
+{% endblock %}
