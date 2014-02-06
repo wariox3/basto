@@ -37,6 +37,11 @@ class RegistrosCopias
      */    
     private $nombreArchivo;     
 
+    /**
+     * @ORM\Column(name="directorio", type="string", length=50, nullable=true)
+     */    
+    private $directorio;    
+    
 
     /**
      * Get codigoRegistroCopiaPk
@@ -138,5 +143,28 @@ class RegistrosCopias
     public function getNombreArchivo()
     {
         return $this->nombreArchivo;
+    }
+
+    /**
+     * Set directorio
+     *
+     * @param string $directorio
+     * @return RegistrosCopias
+     */
+    public function setDirectorio($directorio)
+    {
+        $this->directorio = $directorio;
+
+        return $this;
+    }
+
+    /**
+     * Get directorio
+     *
+     * @return string 
+     */
+    public function getDirectorio()
+    {
+        return $this->directorio;
     }
 }
