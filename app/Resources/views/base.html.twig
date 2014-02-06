@@ -5,28 +5,28 @@
         <title>{% block title %}Basto!{% endblock %}</title>
         {% block stylesheets %}            
             <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" />            
-            <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" type="text/css" rel="stylesheet" />            
+            <link href="http://getbootstrap.com/examples/navbar-fixed-top/navbar-fixed-top.css" type="text/css" rel="stylesheet" /> 
+            <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" /> 
             <link href="{{ asset('bundles/basto/css/menu.css') }}" rel="stylesheet" />
             <link href="{{ asset('bundles/basto/css/general.css') }}" rel="stylesheet" />
         {% endblock %}
-        
+
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
+        
         {% block body %}        
             {{ render(controller('BastoFrontEndBundle:Default:menu')) }}  
             {% block content %}
 
             {% endblock %}             
         {% endblock %}        
-        {% block javascripts %}
-            <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-            <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>            
+         {% block javascripts %}
+              
             <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> 
             
             <script src="{{ asset('bundles/basto/js/menu.js') }}"></script>   
-            <script src="{{ asset('bundles/basto/js/general.js') }}"></script>   
-            
-        {% endblock %}        
+            <script src="{{ asset('bundles/basto/js/general.js') }}"></script>               
+        {% endblock %}
     </body>
 </html>
