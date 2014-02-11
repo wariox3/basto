@@ -35,8 +35,7 @@ class Copias
     /**
      * @ORM\Column(name="nombre_base_datos", type="string", length=50, nullable=true)
      */      
-    private $nombreBaseDatos;    
-    
+    private $nombreBaseDatos;        
 
     /**
      * Get codigoCopiaPk
