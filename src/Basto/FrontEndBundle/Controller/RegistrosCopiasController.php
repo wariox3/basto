@@ -23,10 +23,11 @@ class RegistrosCopiasController extends Controller
             default:
                 $arrIndices = $request->request->get('OpSubmit');            
                 $arRegistroCopia = $em->getRepository('BastoFrontEndBundle:RegistrosCopias')->find($arrIndices[0]);
-                $strDirectorioUsuario = "800158193"; 
+                $strRutaLocal ="C:\copias";
+                $strDirectorioUsuario = "1"; 
                 $strDirectorioArchivo = $arRegistroCopia->getDirectorio(); 
                 $strNombreArchivo = $arRegistroCopia->getNombreArchivo();
-                $strRuta = "C:\copias" . DIRECTORY_SEPARATOR . $strDirectorioUsuario . DIRECTORY_SEPARATOR . $strDirectorioArchivo . DIRECTORY_SEPARATOR . $strNombreArchivo;    
+                $strRuta = $strRutaLocal . DIRECTORY_SEPARATOR . $strDirectorioUsuario . DIRECTORY_SEPARATOR . $arRegistroCopia->getCodigoCopiaFk() . DIRECTORY_SEPARATOR .  $strDirectorioArchivo . DIRECTORY_SEPARATOR . $strNombreArchivo;    
                 header ("Content-Disposition: attachment; filename=" . $strNombreArchivo); 
                 header ("Content-Type: application/x-rar-compressed, application/octet-stream");            
                 header ("Content-Length: ".filesize($strRuta));

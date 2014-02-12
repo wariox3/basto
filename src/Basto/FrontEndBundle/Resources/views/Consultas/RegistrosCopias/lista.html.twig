@@ -1,8 +1,5 @@
 {% extends '::base.html.twig' %}
 {% block content %}
-{% block javascripts %}
-   {{ parent() }}            
-{% endblock %}
 <script>
     $(function() {
         $("#TxtFechaDesde").datepicker({dateFormat: 'yy/mm/dd'});
