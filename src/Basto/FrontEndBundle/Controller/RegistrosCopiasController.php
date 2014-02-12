@@ -23,7 +23,8 @@ class RegistrosCopiasController extends Controller
             default:
                 $arrIndices = $request->request->get('OpSubmit');            
                 $arRegistroCopia = $em->getRepository('BastoFrontEndBundle:RegistrosCopias')->find($arrIndices[0]);
-                $strRutaLocal ="C:\copias";
+                //$strRutaLocal ="C:\copias";
+                $strRutaLocal ="/home/administrador/copias";
                 $strDirectorioUsuario = "1"; 
                 $strDirectorioArchivo = $arRegistroCopia->getDirectorio(); 
                 $strNombreArchivo = $arRegistroCopia->getNombreArchivo();
