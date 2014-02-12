@@ -1,9 +1,7 @@
 {% extends '::base.html.twig' %}
 {% block content %}
 {% block javascripts %}
-   {{ parent() }}
-<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>             
+   {{ parent() }}            
 {% endblock %}
 <script>
     $(function() {
@@ -22,9 +20,9 @@
                 <th>Inicio</th>
                 <th>Fin</th>
                 <th>Nombre</th>
-                <th>Peso</th>
-                <th>Directorio</th>
                 <th></th>
+                <th>Log errores</th>
+                <th></th>                
             </tr>
 
             {% for arRegistroCopia in arRegistrosCopias %}
@@ -33,9 +31,9 @@
                 <td>{{ arRegistroCopia.fechaInicio |date("Y/m/d H:i:s")  }}</td>
                 <td>{{ arRegistroCopia.fechaFin |date("Y/m/d H:i:s")  }}</td>
                 <td>{{ arRegistroCopia.nombreArchivo }}</td>
-                <td>{{ arRegistroCopia.pesoArchivo }}</td>
-                <td>{{ arRegistroCopia.directorio }}</td>
                 <td style="text-align: center"><button type="submit" name="OpSubmit[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>
+                <td>{{ arRegistroCopia.nombreArchivoLog }}</td>
+                <td style="text-align: center"><button type="submit" name="OpSubmit[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>                
             </tr>
             {% endfor %}
         </table>

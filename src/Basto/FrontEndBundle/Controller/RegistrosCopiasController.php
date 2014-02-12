@@ -37,7 +37,7 @@ class RegistrosCopiasController extends Controller
         }                
         $query = $em->createQuery($dql);
         $paginator = $this->get('knp_paginator');
-        $arRegistrosCopias = $paginator->paginate($query, $this->get('request')->query->get('page', 1),3);                       
+        $arRegistrosCopias = $paginator->paginate($query, $this->get('request')->query->get('page', 1),10);                       
         return $this->render('BastoFrontEndBundle:Consultas/RegistrosCopias:lista.html.twig', array('arRegistrosCopias' => $arRegistrosCopias));
     }     
 }

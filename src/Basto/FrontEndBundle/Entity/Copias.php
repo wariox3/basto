@@ -38,6 +38,18 @@ class Copias
     private $nombreBaseDatos;        
 
     /**
+     * @ORM\OneToMany(targetEntity="RegistrosCopias", mappedBy="copiaRel")
+     */
+    protected $registrosCopiasRel;
+
+    public function __construct()
+    {
+        $this->registrosCopiasRel = new ArrayCollection();
+    }    
+    
+   
+
+    /**
      * Get codigoCopiaPk
      *
      * @return integer 
@@ -137,5 +149,38 @@ class Copias
     public function getNombreBaseDatos()
     {
         return $this->nombreBaseDatos;
+    }
+
+    /**
+     * Add registrosCopiasRel
+     *
+     * @param \Basto\FrontEndBundle\Entity\RegistrosCopias $registrosCopiasRel
+     * @return Copias
+     */
+    public function addRegistrosCopiasRel(\Basto\FrontEndBundle\Entity\RegistrosCopias $registrosCopiasRel)
+    {
+        $this->registrosCopiasRel[] = $registrosCopiasRel;
+
+        return $this;
+    }
+
+    /**
+     * Remove registrosCopiasRel
+     *
+     * @param \Basto\FrontEndBundle\Entity\RegistrosCopias $registrosCopiasRel
+     */
+    public function removeRegistrosCopiasRel(\Basto\FrontEndBundle\Entity\RegistrosCopias $registrosCopiasRel)
+    {
+        $this->registrosCopiasRel->removeElement($registrosCopiasRel);
+    }
+
+    /**
+     * Get registrosCopiasRel
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRegistrosCopiasRel()
+    {
+        return $this->registrosCopiasRel;
     }
 }

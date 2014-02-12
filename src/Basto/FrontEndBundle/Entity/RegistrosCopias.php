@@ -18,6 +18,11 @@ class RegistrosCopias
     private $codigoRegistroCopiaPk;
     
     /**
+     * @ORM\Column(name="codigo_copia_fk", type="integer", nullable=true)
+     */    
+    private $codigoCopiaFk;    
+    
+    /**
      * @ORM\Column(name="fecha_inicio", type="datetime", nullable=true)
      */    
     private $fechaInicio;     
@@ -36,12 +41,24 @@ class RegistrosCopias
      * @ORM\Column(name="nombre_archivo", type="string", length=50, nullable=true)
      */    
     private $nombreArchivo;     
+    
+    /**
+     * @ORM\Column(name="nombre_archivo_log", type="string", length=50, nullable=true)
+     */    
+    private $nombreArchivoLog;    
 
     /**
      * @ORM\Column(name="directorio", type="string", length=50, nullable=true)
      */    
     private $directorio;    
     
+    /**
+     * @ORM\ManyToOne(targetEntity="Copias", inversedBy="registrosCopiasRel")
+     * @ORM\JoinColumn(name="codigo_copia_fk", referencedColumnName="codigo_copia_pk")
+     */
+    protected $copiaRel;     
+    
+
 
     /**
      * Get codigoRegistroCopiaPk
@@ -51,6 +68,29 @@ class RegistrosCopias
     public function getCodigoRegistroCopiaPk()
     {
         return $this->codigoRegistroCopiaPk;
+    }
+
+    /**
+     * Set codigoCopiaFk
+     *
+     * @param integer $codigoCopiaFk
+     * @return RegistrosCopias
+     */
+    public function setCodigoCopiaFk($codigoCopiaFk)
+    {
+        $this->codigoCopiaFk = $codigoCopiaFk;
+
+        return $this;
+    }
+
+    /**
+     * Get codigoCopiaFk
+     *
+     * @return integer 
+     */
+    public function getCodigoCopiaFk()
+    {
+        return $this->codigoCopiaFk;
     }
 
     /**
@@ -166,5 +206,51 @@ class RegistrosCopias
     public function getDirectorio()
     {
         return $this->directorio;
+    }
+
+    /**
+     * Set copiaRel
+     *
+     * @param \Basto\FrontEndBundle\Entity\Copias $copiaRel
+     * @return RegistrosCopias
+     */
+    public function setCopiaRel(\Basto\FrontEndBundle\Entity\Copias $copiaRel = null)
+    {
+        $this->copiaRel = $copiaRel;
+
+        return $this;
+    }
+
+    /**
+     * Get copiaRel
+     *
+     * @return \Basto\FrontEndBundle\Entity\Copias 
+     */
+    public function getCopiaRel()
+    {
+        return $this->copiaRel;
+    }
+
+    /**
+     * Set nombreArchivoLog
+     *
+     * @param string $nombreArchivoLog
+     * @return RegistrosCopias
+     */
+    public function setNombreArchivoLog($nombreArchivoLog)
+    {
+        $this->nombreArchivoLog = $nombreArchivoLog;
+
+        return $this;
+    }
+
+    /**
+     * Get nombreArchivoLog
+     *
+     * @return string 
+     */
+    public function getNombreArchivoLog()
+    {
+        return $this->nombreArchivoLog;
     }
 }
