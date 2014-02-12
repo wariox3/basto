@@ -12,6 +12,6 @@ class DefaultController extends Controller
     }
     public function menuAction()
     {
-        return $this->render('BastoFrontEndBundle:Plantillas:menu.html.twig');
+        return $this->render('BastoFrontEndBundle:plantillas:menu.html.twig');
     }     
 }
