@@ -23,7 +23,7 @@ class RegistrosCopiasController extends Controller
                 $strNombreArchivo = $arRegistroCopia->getNombreArchivoLog();
                 $strRuta = $strRutaLocal . DIRECTORY_SEPARATOR . $strDirectorioUsuario . DIRECTORY_SEPARATOR . $arRegistroCopia->getCodigoCopiaFk() . DIRECTORY_SEPARATOR .  $strDirectorioArchivo . DIRECTORY_SEPARATOR . $strNombreArchivo;    
                 header ("Content-Disposition: attachment; filename=" . $strNombreArchivo); 
-                header ("Content-Type: text/plain");            
+                header ("Content-Type:  application/octet-stream, text/plain");            
                 header ("Content-Length: ".filesize($strRuta));
                 readfile($strRuta);
             }
