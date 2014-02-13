@@ -9,8 +9,7 @@
                 <li><a href="{{ path('basto_front_end_consultas_copias') }}">Copias</a></li>                
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Consultas <b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{{ path('basto_front_end_consultas_copias') }}">Copias</a></li>
+                    <ul class="dropdown-menu">                        
                         <li><a href="{{ path('basto_front_end_consultas_registro_copias') }}">Registro copias</a></li>
                         <li class="divider"></li>
                         <li class="dropdown-header">Otras</li>
@@ -18,6 +17,10 @@
                     </ul>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><a href="{{ path('logout') }}">{{ Usuario }}</a></li>
+              <li><a href="{{ path('logout') }}">Salir</a></li>              
+            </ul>            
         </div>
     </div>
 </div>

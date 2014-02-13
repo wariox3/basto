@@ -9,3 +9,21 @@ basto_front_end_consultas_copias:
 basto_front_end_consultas_registro_copias:
     pattern:  /consultas/registro/copias
     defaults: { _controller: BastoFrontEndBundle:RegistrosCopias:lista }    
+    
+login:
+    pattern:   /login
+    defaults:  { _controller: BastoFrontEndBundle:Seguridad:login }
+
+login_check:
+    pattern:   /login_check
+
+logout:
+    pattern:   /logout
+
+registro:
+    pattern:   /registro
+    defaults:  { _controller: BastoFrontEndBundle:Seguridad:registro }
+    
+seleccionar_empresa:
+    pattern:   /seleccionar_empresa
+    defaults:  { _controller: BastoFrontEndBundle:Seguridad:seleccionar }     

@@ -1,0 +1,26 @@
+{% extends '::base_sin_menu.html.twig' %}
+{% block content %}
+<div class="container">   
+
+    <form class="form-signin" role="form" action="{{ path('login_check') }}" method="post">
+        <h2 class="form-signin-heading">Por favor iniciar sesion</h2>        
+        <input type="text" class="form-control" placeholder="Usuario" id="username" name="_username" required autofocus>                
+        <input type="password" class="form-control" placeholder="Password" id="password" name="_password" required ><br />        
+
+        <label class="checkbox">
+            <input type="checkbox" value="remember-me"> Recordarme
+        </label>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Iniciar sesion</button>        
+    </form>
+    <a href="{{ path('registro') }}" style="float:right;color:white">Nuevo usuario</a>
+    <center>
+                {% if error %}
+        <div id="informacion" class="alert alert-block alert-error fade in" width="10px">
+            <p>{{ app.session.flash('error') }}</p>
+            <div>{{ error.message }}</div>
+        </div>    
+                {% endif %} 
+    </center>    
+</div>                  
+
+{% endblock %}

@@ -28,9 +28,14 @@
                 <td>{{ arRegistroCopia.fechaInicio |date("Y/m/d H:i:s")  }}</td>
                 <td>{{ arRegistroCopia.fechaFin |date("Y/m/d H:i:s")  }}</td>
                 <td>{{ arRegistroCopia.nombreArchivo }}</td>
-                <td style="text-align: center"><button type="submit" name="OpSubmit[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>
+                <td style="text-align: center"><button type="submit" name="OpDescargarCopia[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>
                 <td>{{ arRegistroCopia.nombreArchivoLog }}</td>
-                <td style="text-align: center"><button type="submit" name="OpSubmit[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>                
+                {% if arRegistroCopia.nombreArchivoLog != "SIN_ERRORES" %} <span class="label label-info">Autorizado</span> 
+                    <td style="text-align: center"><button type="submit" name="OpDescargarLog[]" value="{{ arRegistroCopia.codigoRegistroCopiaPk }}"><img src="{{ asset('bundles/basto/imagenes/bootstrap/glyphicons_200_download.png') }}" width=22 height=22></button></td>                                
+                {% else %}
+                    <td style="text-align: center"></td>                                                    
+                {% endif %}
+                
             </tr>
             {% endfor %}
         </table>
@@ -55,7 +60,7 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">
-                    <button class="btn btn-primary" type="submit" name="OpSubmit" value="OpBuscar">Buscar</button>
+                    <button class="btn btn-primary" type="submit" name="OpBuscar" value="OpBuscar">Buscar</button>
                 </div>
             </div>
             <!-- Fin formulario de busqueda -->
