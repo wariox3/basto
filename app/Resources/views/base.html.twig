@@ -5,7 +5,7 @@
         <title>{% block title %}Basto!{% endblock %}</title>
 
         {% block stylesheets %}            
-            <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" type="text/css" rel="stylesheet" />                        
+            <link href="{{ asset('bundles/basto/css/boostrap.min.css') }}" type="text/css" rel="stylesheet" />                        
             <link href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css" type="text/css" rel="stylesheet" /> 
             <link href="{{ asset('bundles/basto/css/general.css') }}" rel="stylesheet" />
         {% endblock %}
